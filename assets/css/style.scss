@@ -1,0 +1,992 @@
+@import "./variables";
+@import "./mixins";
+@import "./placeholders";
+
+//_variables
+
+//_placeholders
+
+//_mixins
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    line-height: 1.5rem;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $btnColorB;
+}
+
+section.nav-section {
+    nav.nav-bar {
+        padding: 0.5rem 1rem;
+        z-index: 1;
+        @extend %myFixedPosLR;
+        div.container {
+            margin: auto;
+            @extend %flexCenterSpace-between;
+            div.brand {
+                @extend %flexCenter;
+                img {
+                    @extend %myLogoImg;
+                }
+                a {
+                    @extend %myBrandA;
+                }
+            }
+            div.menu-bar {
+                @extend %flexCenter;
+                ul {
+                    @extend %flexCenter;
+                }
+                li {
+                    a {
+                        @extend %myA;
+                        &.dropdown {
+                            @extend %flexCenterCenter;
+                            &::after {
+                                @extend %myAfterA;
+                            }
+                        }
+                    }
+                    &.dropdown {
+                        position: relative;
+                        div.dropdown-menu {
+                            @extend %myDropdownDiv;
+                        }
+                        &:hover {
+                            @extend %myDropdownDivHov;
+                            a.dropdown {
+                                @extend %myDropdownA;
+                            }
+                            div.dropdown-menu {
+                                display: block;
+                                background: $btnColorW;
+                                a {
+                                    @extend %myDropdownedA;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            div.button-block {
+                a.btn-small {
+                    @include myBtnStandart($paddingSmallBtn);
+                }
+            }
+        }
+    }
+}
+
+section {
+    padding: 15px 0;
+    &.big30-pad {
+        padding: 30px 0;
+    }
+    &.big45-pad {
+        padding: 45px 0;
+    }
+    &.big60-pad {
+        padding: 60px 0;
+    }
+    &.big75-pad {
+        padding: 75px 0;
+    }
+    &.big120-pad {
+        padding: 120px 0;
+    }
+    &.gray-back {
+        background: #f2f2f4;
+    }
+    &.big90-120-pad {
+        padding: 90px 0 120px;
+    }
+    div.container {
+        margin: auto;
+        padding: 0 15px;
+        &.big-width {
+            position: relative;
+            max-width: 1380px;
+        }
+        &.mid-width {
+            max-width: 960px;
+        }
+        h2.price-header {
+            @include fontStyle(3.6rem, 1.2, 0, 0.5rem);
+            text-align: center;
+            font-weight: 800;
+        }
+        ol.comment-points {
+            @extend %slideDotContainer;
+            li {
+                @extend %slideDot;
+                &.active {
+                    @extend %slideDotActive;
+                }
+            }
+        }
+        .comment-container {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            .comment-slide {
+                width: 100%;
+                position: relative;
+                display: flex;
+                transition: transform 2s;
+                transform: translateX(0px);
+                .comment {
+                    @extend %flexCenterCenter;
+                    padding: 0;
+                    backface-visibility: hidden;
+                    transition: transform 2s;
+                    min-width: 100%;
+                    // &.to-right {
+                    //     display: flex;
+                    //     transform: translate(100%);
+                    // }
+                    // &.pos {
+                    //     position: absolute;
+                    //     top: 0;
+                    //     left: 100%;
+                    // }
+                    // &.to-left {
+                    //     display: flex;
+                    //     transform: translate(-100%);
+                    // }
+                    .comment-min {
+                        flex-basis: 66%;
+                    }
+                    // &.active {
+                    //     display: flex;
+                    // }
+                    img {
+                        width: 120px;
+                        height: 120px;
+                        overflow: hidden;
+                        border-radius: 50%;
+                        margin: 0 auto 1rem auto;
+                        position: relative;
+                    }
+                    p {
+                        font-weight: 400;
+                        @include fontStyle(1.2rem, 1.5, 0, 1rem);
+                    }
+                    i {
+                        font-size: 3rem;
+                    }
+                    h3 {
+                        font-weight: 600;
+                        @include fontStyle(1rem, 1.6, 0, 0.5rem);
+                    }
+                    h4 {
+                        font-weight: 800;
+                        @include fontStyle(1.6rem, 1.4, 0, 0);
+                    }
+                }
+            }
+        }
+        div.row {
+            @extend %flexEnd;
+            margin: 0 -15px;
+            flex-wrap: wrap;
+            &.jc-start {
+                justify-content: start;
+            }
+            &.sp-btw {
+                justify-content: space-between;
+            }
+            &.jc-center {
+                @extend %flexJustContentCenter;
+            }
+            &.top-pad3 {
+                padding-top: 3rem;
+            }
+            &.no-wrap {
+                flex-wrap: nowrap;
+            }
+            div.header-content {
+                @include flexWidth(40%, 550px);
+                margin: auto 0;
+                padding: 1.5rem 2rem;
+                h1.main-header {
+                    @include fontStyle();
+                }
+                p {
+                    @include fontStyle(1.2rem, 1.5, 1rem, 1rem);
+                }
+                div.icons-row {
+                    display: flex;
+                    div.icon-item {
+                        @extend %flexCenter;
+                        margin-bottom: 1.5rem;
+                        margin-right: 2rem;
+                        i {
+                            font-size: 1.8rem;
+                            padding-right: 0.8rem;
+                            padding-bottom: 4px;
+                        }
+                        h3 {
+                            font-size: 1.2rem;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+                a {
+                    @include myBtnStandart($paddingMidBtn);
+                    &.rev {
+                        @include myBtnStandartReverse($paddingMidBtn);
+                    }
+                }
+            }
+
+            div.img-container {
+                &.half-container {
+                    @include flexWidth(50%);
+                }
+                &.sixty-container {
+                    @include flexWidth(60%);
+                }
+                img {
+                    @extend %imgContent;
+                    &.flip {
+                        transform: scaleX(-1);
+                    }
+                }
+            }
+
+            div.logo-container {
+                padding: 0 15px;
+                @include flexWidth(25%);
+                div.quarter-div {
+                    position: relative;
+                    border: none;
+                    padding: 3rem 2rem;
+                    border-radius: 30px;
+
+                    div.feature-logo {
+                        text-align: center;
+                        & i {
+                            color: #383838;
+                            font-size: 3rem;
+                            position: relative;
+                            margin-bottom: 3rem;
+                        }
+                    }
+                    & svg {
+                        @extend %featureSVG;
+                    }
+
+                    &.first-feature {
+                        background: #fed9bd;
+                    }
+                    &.second-feature {
+                        background: #cdeaba;
+                    }
+                    &.third-feature {
+                        background: #f9f4b1;
+                    }
+                    &.fourth-feature {
+                        background: #aff0f6;
+                    }
+                    div.feature-info {
+                        h4 {
+                            font-weight: 800;
+                            @include fontStyle(1.6rem, 1.4, 0.5rem, 0.75rem);
+                        }
+                        p {
+                            color: $colorFeatureText;
+                            @include fontStyle(1rem, 1.6, 1.5rem, 1rem);
+                            font-weight: 400;
+                        }
+                        h5 {
+                            color: $colorFeatureText;
+                            font-weight: 600;
+                            font-size: 1rem;
+                            line-height: 1.6;
+                        }
+                        a {
+                            font-weight: 600;
+                            transition: all 0.3s;
+                            color: #4d4d4d;
+                            &:hover {
+                                color: $colorDivHov;
+                            }
+                        }
+                    }
+                }
+            }
+
+            div.teaching-list {
+                @include flexWidth(50%, 600px);
+                margin: auto;
+                padding: 1.5rem 2rem;
+                h1 {
+                    @include fontStyle(3.6rem, 1.2, 1.5rem, 0.5rem);
+                    font-weight: 800;
+                }
+                h2 {
+                    @include fontStyle(1.2rem, 1.5, 0, 0.5rem);
+                    color: $colorDivHov;
+                    font-weight: 800;
+                }
+                p {
+                    @include fontStyle(1.2rem, 1.5, 1rem, 1rem);
+                    color: $btnColor18;
+                }
+
+                ul li {
+                    @extend %flexCenter;
+                    margin-bottom: 20px;
+                    i {
+                        font-size: 18px;
+                        padding-right: 12px;
+                        font-weight: 900;
+                        transition: all 0.3s;
+                    }
+                    h4 {
+                        font-size: 1.2rem;
+                        line-height: 1.5;
+                        font-weight: 400;
+                    }
+                    &:hover i {
+                        color: green;
+                    }
+                }
+            }
+            div.two-third-container {
+                padding: 0 15px 1.5rem;
+                @include flexWidth(67%);
+                h4 {
+                    @include fontStyle(1.2rem, 1.5, 0, 0.5rem);
+                    font-weight: 800;
+                    color: $colorDivHov;
+                }
+                h2 {
+                    @include fontStyle(3.6rem, 1.2, 0, 0.5rem);
+                    font-weight: 800;
+                }
+            }
+            div.one-third-container {
+                padding: 0 15px 1.5rem;
+                @include flexWidth(33%);
+                &.flex-end {
+                    @extend %flexCenterEnd;
+                    justify-content: flex-end;
+                    div.button-block {
+                        a.btn-small {
+                            @include myBtnStandartReverse($paddingSmallBtn);
+                        }
+                    }
+                }
+                div.look {
+                    height: 350px;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        transition: all 0.5s;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: #181818;
+                        border-radius: 30px;
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                    &:hover::after {
+                        opacity: 0.3;
+                    }
+
+                    img {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 30px;
+                    }
+                    div.img-about {
+                        color: $btnColorW;
+                        opacity: 0;
+                        text-align: center;
+                        position: absolute;
+                        transition: all 0.5s;
+                        width: 100%;
+                        height: fit-content;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        p {
+                            @include fontStyle(1rem, 1.6, 0, 1rem);
+                            font-weight: 600;
+                        }
+                        h3 {
+                            @include fontStyle(1.6rem, 1.4, 0, 0.75rem);
+                            font-weight: 800;
+                        }
+                    }
+                    &:hover div.img-about {
+                        opacity: 1;
+                        z-index: 1;
+                    }
+                }
+            }
+            div.welcome {
+                @include flexWidth(59%);
+                padding: 0 15px 5rem;
+                h2 {
+                    @include fontStyle(3.6rem, 1.2, 0, 0.5rem);
+                    font-weight: 800;
+                    a {
+                        color: $colorDivHov;
+                        strong {
+                            font-weight: 800;
+                        }
+                    }
+                }
+            }
+            div.book-tour {
+                @include flexWidth(41%);
+                margin: auto;
+                padding: 0 15px 5rem;
+                div.bone {
+                    position: relative;
+                    height: 130px;
+                    width: 250px;
+                    @extend %flexCenterCenter;
+                    margin: auto;
+                    transition: transform 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                    img {
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    h3 {
+                        margin: 0;
+                        transform: rotate(-6deg);
+                        color: #ffffff;
+                        @include fontStyle(1.6rem, 1.4, 0, 0);
+                        font-weight: 800;
+                    }
+                    &:hover {
+                        transform: rotate(12deg);
+                    }
+                }
+            }
+            div.tour-item-container {
+                @extend %flexCenterColumn;
+                flex-basis: 25%;
+                padding: 1rem;
+                div.tour-logo-container {
+                    width: 150px;
+                    margin: 0 auto;
+                    margin-bottom: 1.5rem;
+                    div.tour-item-progress {
+                        position: relative;
+                        i {
+                            position: absolute;
+                            top: 50%;
+                            font-size: 3rem;
+                            color: #181818;
+                            transform: translate(-50%, -50%);
+                            left: 50%;
+                        }
+                        svg {
+                            @extend %standartSVG;
+                            ellipse {
+                                stroke: rgba(206, 206, 206, 0.4);
+                            }
+                            path {
+                                stroke: #ed6436;
+                            }
+                        }
+                    }
+                }
+            }
+            div.content {
+                text-align: center;
+                h4 {
+                    color: $btnColor18;
+                    font-weight: 600;
+                    @include fontStyle(1.2rem, 1.5, 0.5rem, 0);
+                }
+                p {
+                    color: #383838;
+                    font-weight: 400;
+                    @include fontStyle(1rem, 1.6, 0, 0);
+                }
+            }
+            div.plan {
+                @include flexWidth(33.33%, 400px);
+                padding: 0 15px;
+                margin-bottom: 1rem;
+                div.plan-header {
+                    padding: 3rem 3rem 0 3rem;
+                    background: #f2f2f4;
+                    border-top-left-radius: 30px;
+                    border-top-right-radius: 30px;
+                    h3 {
+                        color: $colorDivHov;
+                        font-weight: 800;
+                        @include fontStyle(1.2rem, 1.5, 0.25rem, 0.5rem);
+                    }
+                    h4 {
+                        letter-spacing: 2px;
+                        font-weight: 800;
+                        color: $btnColor18;
+                        @include fontStyle(3.6rem, 1.2, 0, 0);
+                    }
+                    i {
+                        font-size: 4rem;
+                        color: $btnColor18;
+                        padding: 1rem 0 0.5rem;
+                    }
+                }
+                div.plan-content {
+                    border-bottom-left-radius: 30px;
+                    border-bottom-right-radius: 30px;
+                    background: #f2f2f4;
+                    padding: 1rem 1rem;
+                    div.plan-list div.plan-item {
+                        @extend %flexCenterRowRev;
+                        padding: 0 2rem;
+                        i {
+                            margin-left: 2rem;
+                            font-size: 18px;
+                            &.fa-close {
+                                width: 18px;
+                            }
+                        }
+                        p {
+                            width: 100%;
+                            margin: 0;
+                            padding: 6px 0;
+                            font-weight: 500;
+                        }
+                    }
+                    div.plan-price {
+                        padding: 2rem 2rem;
+                        span {
+                            font-weight: 800;
+                            &.dollar {
+                                vertical-align: top;
+                                @include fontStyle(1.6rem, 1.4, 0, 0);
+                            }
+                            &.value {
+                                @include fontStyle(3.6rem, 1.2, 0, 0);
+                            }
+                        }
+                    }
+                }
+                &.active-plan {
+                    transform: scale(1.1);
+                    padding: 0;
+                    background: $colorDivHov;
+                    z-index: 15;
+                    border-radius: 30px;
+                    div.plan-header {
+                        background: $colorDivHov;
+                        h3,
+                        h4 {
+                            color: $btnColorW !important;
+                        }
+                    }
+                    div.plan-content {
+                        color: $btnColorW !important;
+                        background: $colorDivHov;
+                    }
+                }
+            }
+            div.price-column {
+                @include flexWidth(50%);
+                padding: 0 15px;
+                div.menu-container div.offer {
+                    @extend %flexCenter;
+                    margin-bottom: 1.5rem;
+                    i {
+                        font-size: 2.5rem;
+                        padding-right: 1rem;
+                        color: #7aba59;
+                    }
+                    h3 {
+                        @include fontStyle(1.6rem, 1.4, 0, 0);
+                        color: #181818;
+                        font-weight: bold;
+                    }
+                }
+                div.menu-list {
+                    @extend %flexWrap;
+                    div.menu-item {
+                        @include flexWidth(100%);
+                        margin-bottom: 1.5rem;
+                    }
+                    div.menu-box {
+                        @extend %flexBaseline;
+                        margin-bottom: 0.5rem;
+                        p {
+                            color: $colorDivHov;
+                        }
+                        div.dot-line {
+                            @extend %dotLineDiv;
+                        }
+                        span {
+                            font-weight: 800;
+                            color: $btnColor18;
+                            @include fontStyle(1.2rem, 1.5, 0, 0);
+                        }
+                    }
+                    h3 {
+                        @include fontStyle(1.2rem, 1.5, 0, 0.5rem);
+                    }
+                }
+            }
+            div.step-content {
+                @extend %flexCenter;
+                @include flexWidth(100%);
+                padding: 1rem;
+                div.progress {
+                    width: 200px;
+                    position: relative;
+                    h5 {
+                        @include fontStyle(3.6rem, 1.2, 0, 0);
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-weight: 800;
+                    }
+                    svg {
+                        @extend %standartSVG;
+                        ellipse {
+                            stroke: rgba(206, 206, 206, 0.4);
+                        }
+                        path {
+                            stroke: #7aba59;
+                        }
+                    }
+                }
+                div.content {
+                    width: -webkit-fill-available;
+                    text-align: left;
+                    padding-left: 1rem;
+                    h4 {
+                        color: $colorDivHov;
+                        @include fontStyle(1.2rem, 1.5, 0.5rem, 0);
+                        font-weight: 800;
+                    }
+                    p {
+                        @include fontStyle(1rem, 1.6, 0, 0);
+                        font-weight: 400;
+                    }
+                }
+            }
+            div.team-header {
+                @include flexWidth(100%);
+                padding: 0 15px 3rem;
+                h2 {
+                    text-align: center;
+                    font-weight: 800;
+                    @include fontStyle(3.6rem, 1.2, 0, 0.5rem);
+                }
+            }
+            div.teammate {
+                @include flexWidth(33.33%);
+                text-align: center;
+                padding: 0 15px;
+                img {
+                    width: 100%;
+                    margin-bottom: 1rem;
+                    vertical-align: middle;
+                }
+                h3 {
+                    @include fontStyle(1.6rem, 1.4, 0, 0.75rem);
+                    font-weight: 800;
+                }
+                p {
+                    @include fontStyle(1rem, 1.6, 0, 1rem);
+                    font-weight: 600;
+                    color: $colorDivHov;
+                }
+                div.button-block a {
+                    @include myBtnStandartReverse($paddingMidBtn);
+                }
+            }
+            div.about-employee {
+                max-width: 550px;
+                margin: auto 0;
+                padding: 0 2rem;
+                color: $btnColor18;
+                h1 {
+                    font-weight: 800;
+                    @include fontStyle(3.6rem, 1.2, 0.5rem, 0.5rem);
+                    a {
+                        color: $colorDivHov;
+                        font-weight: 400;
+                        strong {
+                            font-weight: 800;
+                        }
+                    }
+                }
+                p {
+                    @include fontStyle(1.2rem, 1.5, 1rem, 1rem);
+                }
+            }
+            div.about-container {
+                @extend %flexCenter;
+                padding: 0 15px;
+                div.about {
+                    @include flexWidth(33.33%);
+                    i {
+                        font-size: 3rem;
+                        color: #383838;
+                        padding-bottom: 1.5rem;
+                    }
+                    h3 {
+                        color: $colorDivHov;
+                        @include fontStyle(1.2rem, 1.5, 0, 0.5rem);
+                    }
+                    p {
+                        color: $btnColor18;
+                        font-weight: 400;
+                        @include fontStyle(1rem, 1.6, 0, 1.6rem);
+                    }
+                }
+            }
+            div.img-employee {
+                @include flexWidth(58%);
+                img {
+                    width: 100%;
+                    vertical-align: middle;
+                    border-style: none;
+                }
+            }
+            div.contact {
+                @include flexWidth(50%, 500px);
+                padding: 0 2rem;
+                margin: auto;
+                form {
+                    padding: 2rem 2rem;
+                    background: #f2f2f4;
+                    border-radius: 30px;
+                    .form-container {
+                        @extend %flexWrap;
+                        margin: 0 -5px;
+                        .form-text {
+                            @include flexWidth(100%);
+                            width: 100%;
+                            margin: 0;
+                            padding: 0 5px;
+                            h4 {
+                                color: $colorDivHov;
+                                font-weight: 600;
+                                @include fontStyle(1.2rem, 1.5, 0, 0.5rem);
+                            }
+                            h5 {
+                                font-weight: 800;
+                                @include fontStyle(3.6rem, 1.2, 1rem, 0.5rem);
+                            }
+                        }
+                        .input-div {
+                            @include flexWidth(100%);
+                            width: 100%;
+                            margin-bottom: 1rem;
+                            padding: 0 5px;
+                        }
+                        input,
+                        textarea {
+                            @extend %myInput;
+                        }
+                        textarea {
+                            min-height: 10rem;
+                        }
+                    }
+                    .button-block {
+                        @include flexWidth(auto, 100%);
+                        padding: 0 5px;
+                        button {
+                            cursor: pointer;
+                            @include myBtnStandartReverse($paddingBigBtn);
+                        }
+                    }
+                }
+            }
+            div.contact-img {
+                @include flexWidth(50%);
+                padding: 0;
+                margin: auto 0;
+                img {
+                    width: 100%;
+                    vertical-align: middle;
+                    border-style: none;
+                }
+            }
+            div.map {
+                @include flexWidth(66.66%);
+                .google-map {
+                    position: relative;
+                    svg {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        pointer-events: none;
+                        transform: scale(1.03);
+                    }
+                }
+            }
+            div.address {
+                @include flexWidth(41.66%, 360px);
+                padding: 0 15px;
+                .address-img img {
+                    width: 100%;
+                    border-top-right-radius: 30px;
+                    border-top-left-radius: 30px;
+                    vertical-align: middle;
+                    border-style: none;
+                }
+                .contact-container {
+                    background: #f2f2f4;
+                    padding: 2rem 1.4rem;
+                    border-bottom-right-radius: 30px;
+                    border-bottom-left-radius: 30px;
+                    .contact-item {
+                        display: flex;
+                        i {
+                            width: auto;
+                            color: $btnColor18;
+                            font-size: 1.8rem;
+                            padding-right: 1rem;
+                            margin: 0.2rem 0 3;
+                        }
+                        .contact-about {
+                            width: 100%;
+                            h4 {
+                                color: $colorDivHov;
+                                font-weight: 800;
+                                @include fontStyle(1.6rem, 1.4, 0, 0.75rem);
+                            }
+                            p {
+                                font-weight: 400;
+                                @include fontStyle(1rem, 1.6, 1rem, 1rem);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+section.about {
+    padding: 0 60px;
+    .container {
+        margin: auto;
+        padding: 0 15px;
+        max-width: 1380px;
+        .row {
+            @extend %flexWrap;
+            margin: 0 15px;
+            .footer-item {
+                @include flexWidth(25%);
+                margin-bottom: 2rem;
+                padding: 0 15px;
+                .logo {
+                    @extend %flexCenter;
+                    width: fit-content;
+                    padding-bottom: 1.5rem;
+                    img {
+                        @extend %myFooterLogo;
+                    }
+                    h2 {
+                        font-weight: 800;
+                        @include fontStyle(1.6rem, 1.4, 0, 0);
+                    }
+                }
+                .social-links {
+                    display: flex;
+                    width: fit-content;
+                    margin-bottom: 0.8rem;
+                    a {
+                        margin-right: 0.6rem;
+                        i {
+                            @extend %soicalLogo;
+                        }
+                    }
+                }
+                h2.head {
+                    color: $colorDivHov;
+                    font-weight: 800;
+                    @include fontStyle(1.6rem, 1.4, 0.5rem, 0.5rem);
+                }
+                .about-item {
+                    @extend %flexCenter;
+                    width: fit-content;
+                    padding-bottom: 0.5rem;
+                    i {
+                        font-size: 1.2rem;
+                        width: 35px;
+                        color: $btnColor18;
+                        padding-right: 1rem;
+                    }
+                    h3 {
+                        font-weight: 400;
+                        @include fontStyle(1rem, 1.6, 0, 0);
+                    }
+                }
+                h3.for-link {
+                    font-weight: 400;
+                    @include fontStyle(1rem, 1.6, 0.5rem, 0);
+                }
+                form div.form-container {
+                    @extend %flexWrap;
+                    margin: 0 -5px;
+                    div {
+                        @include flexWidth(100%);
+                        padding: 0 5px;
+                        &.mail {
+                            margin-bottom: 0.4rem;
+                        }
+                    }
+                    input {
+                        @extend %myInput;
+                        @extend %inputNewsletter;
+                    }
+                    button {
+                        @extend %buttonNewsletter;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer.copyright {
+    background-color: $colorDivHov;
+    padding: 30px 0;
+    .container {
+        max-width: 960px;
+        @extend %flexCenterCenter;
+        padding: 0 15px;
+        margin: 0 auto;
+        .copyright-container {
+            @include flexWidth(100%);
+            text-align: center;
+            padding: 0 15px;
+            color: $btnColorW;
+            p {
+                @include fontStyle(1.2rem, 1.5, 0, 0);
+            }
+        }
+    }
+}

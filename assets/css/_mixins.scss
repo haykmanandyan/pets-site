@@ -1,0 +1,47 @@
+@mixin myBtnStandart($paddingBtn: 1rem 3rem) {
+  display: inline-block;
+  box-shadow: 0 0 0 2px #ed6436 inset;
+  background: transparent;
+  font-weight: 700;
+  border-radius: 25px;
+  color: $btnColorB;
+  overflow: hidden;
+  border-top-left-radius: 0px;
+  border: none;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: $paddingBtn;
+  margin: 0.4rem 0.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 100px #ed6436 inset;
+    background: transparent;
+    border: none;
+    color: $btnColorW;
+  }
+}
+
+@mixin myBtnStandartReverse($paddingBtn: 1rem 3rem) {
+  @include myBtnStandart($paddingBtn);
+  box-shadow: 0 0 0 100px #ed6436 inset;
+  color: $btnColorW;
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 2px #ed6436 inset;
+    color: $colorDivHov;
+  }
+}
+
+@mixin fontStyle($fontSize: 3.6rem, $lineHeight: 1.2, $paddingBottom: 1rem, $marginBottom: 0.5rem) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  padding-bottom: $paddingBottom;
+  margin-bottom: $marginBottom;
+}
+
+@mixin flexWidth($flexBasis, $maxWidth: $flexBasis) {
+  flex-basis: $flexBasis;
+  max-width: $maxWidth;
+}

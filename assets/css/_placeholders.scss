@@ -1,0 +1,295 @@
+/* a TAG START */
+%myBrandA {
+  display: block;
+  font-weight: 700;
+  text-decoration: none;
+  color: $btnColorB;
+  font-size: 1.6rem;
+}
+
+%myA {
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem 0;
+  margin: 0rem 1.5rem;
+  color: $btnColor18;
+}
+
+%myAfterA {
+  content: "";
+  margin-left: 0.25rem;
+  border-top: 0.35em solid;
+  border-right: 0.35em solid transparent;
+  border-left: 0.35em solid transparent;
+  border-bottom: 0;
+}
+
+%myDropdownA {
+  transition: all 0.3s ease-in-out;
+  color: $colorDivHov;
+  box-shadow: 0 4px 2px -2px $colorDivHov;
+}
+
+%myDropdownedA {
+  background: $btnColorW;
+  font-weight: 700;
+  border-bottom: 1px solid $openedColor;
+  margin: 0.5rem 0.5rem;
+  width: auto;
+  transition: all 0.25s ease-in-out;
+}
+
+/* a TAG END */
+
+/* div TAG START */
+
+%myDropdownDiv {
+  display: none;
+  position: absolute;
+  white-space: nowrap;
+  z-index: -1;
+}
+%myDropdownDivHov {
+  transition: all 0.3s ease-in-out;
+}
+
+%dotLineDiv {
+  display: flex;
+  flex: 1 1 auto;
+  background-image: radial-gradient(circle closest-side, #9a9a9a 99%, rgba(255, 255, 255, 0) 1%);
+  background-size: 12px 2px;
+  background-position: center;
+  margin: 0.2em 0.5em;
+  background-repeat: repeat;
+  height: 2px;
+}
+
+/* div TAG END */
+
+/* Flex START */
+
+%flexCenter {
+  display: flex;
+  align-items: center;
+}
+
+%flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+%flexCenterColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+%flexEnd {
+  display: flex;
+  justify-content: flex-end;
+}
+
+%flexCenterEnd {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+%flexCenterSpace-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+%flexCenterCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flexJustContentCenter {
+  display: flex;
+  justify-content: center;
+}
+
+%flexCenterRowRev {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+%flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+%flexBaseline {
+  display: flex;
+  align-items: baseline;
+}
+
+/* Flex END */
+
+/* Positions START */
+%myFixedPosLR {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+/* Positions END */
+
+/* img variants START */
+%myLogoImg {
+  margin-right: 5px;
+  height: 3rem;
+}
+
+%imgContent {
+  transform: scaleX(1);
+  width: 100%;
+  vertical-align: middle;
+}
+
+%myFooterLogo {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.8rem;
+  vertical-align: middle;
+  border-style: none;
+}
+
+/* img variants END */
+
+/* svg START */
+
+%featureSVG {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  opacity: 0.3;
+  transform: rotate(-3deg) scale(1.15);
+}
+
+%standartSVG {
+  overflow: hidden;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+
+/* svg END */
+
+/* dot START */
+%slideDotContainer {
+  position: absolute;
+  right: 0;
+  bottom: -3rem;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin: 0 15%;
+}
+
+%slideDot {
+  width: 7px;
+  height: 7px;
+  margin: auto 7px;
+  border: none;
+  background: #383838;
+  transition: all 0.3s;
+  border-radius: 50%;
+  opacity: 0.5;
+  position: relative;
+}
+
+%slideDotActive {
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+}
+/* dot END */
+
+/* Input START */
+%myInput {
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border-color: #f2f2f4;
+  color: #181818;
+  transition: 0.4s;
+  box-shadow: none;
+  outline: none;
+  display: block;
+  width: 100%;
+  min-height: 3.5em;
+  height: calc(2.25rem + 2px);
+  font-weight: 400;
+  background-clip: padding-box;
+  border: 1px solid #e8e8e8;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  &:hover,
+  &:focus {
+    background-color: #ffffff;
+    border-color: #ed6436;
+    color: #181818;
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+%inputNewsletter {
+  min-height: 2em;
+  font-size: 1rem;
+  text-align: center;
+}
+/* Input END */
+
+/* Social START */
+%soicalLogo {
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: $colorDivHov;
+  border: 2px solid $colorDivHov;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  @extend %flexCenterCenter;
+  transition: all 0.3s;
+  &:hover {
+    background: #ffffff;
+    color: $colorDivHov;
+    border: 2px solid $colorDivHov;
+  }
+}
+/* Social END */
+
+/* Button START */
+%buttonNewsletter {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  padding: 0.4rem 1rem;
+  margin: 0.4rem 0;
+  display: inline-block;
+  box-shadow: 0 0 0 100px #ed6436 inset;
+  color: $btnColorW;
+  background: transparent;
+  font-weight: 700;
+  overflow: hidden;
+  border: none;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  &:hover,
+  &:focus {
+    background: transparent;
+    box-shadow: 0 0 0 2px #ed6436 inset;
+    color: $colorDivHov;
+    border: none;
+  }
+}
+/* Button END */
